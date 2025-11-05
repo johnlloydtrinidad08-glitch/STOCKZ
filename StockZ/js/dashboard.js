@@ -1,29 +1,21 @@
-// =========================
-// Firebase imports
-// =========================
+// firebase 
 import { db } from "./firebaseConfig.js";
 import {
   collection,
   onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// =========================
-// Firestore keys
-// =========================
+// firestore 
 const KEY_PRODUCTS = "products";
 const KEY_CATEGORIES = "categories";
 
-// =========================
-// DOM elements
-// =========================
+// dom elements
 const numProducts = document.getElementById("numProducts");
 const numCategories = document.getElementById("numCategories");
 const totalQty = document.getElementById("totalQty");
 const productListSection = document.querySelector(".product-list"); // existing section in your HTML
 
-// =========================
-// Load and listen for updates
-// =========================
+// loading and update listener
 function loadDashboardData() {
   onSnapshot(collection(db, KEY_PRODUCTS), snapshot => {
     let productCount = 0;
@@ -58,9 +50,7 @@ function loadDashboardData() {
   });
 }
 
-// =========================
-// Initialize
-// =========================
 window.addEventListener("DOMContentLoaded", () => {
   loadDashboardData();
 });
+
