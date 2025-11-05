@@ -1,6 +1,4 @@
-// =========================
-// Firebase imports
-// =========================
+// firebase imports
 import { db } from "./firebaseConfig.js";
 import {
   collection,
@@ -12,36 +10,32 @@ import {
   onSnapshot
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// =========================
-// Firestore Collection Keys
-// =========================
+// firestore 
 const KEY_PRODUCTS = "products";
 const KEY_CATEGORIES = "categories";
 
-// =========================
-// DOM Elements
-// =========================
+// dom elements
 const productList = document.getElementById("productList");
 const modalAddProduct = document.getElementById("modalAddProduct");
 const modalUpdateProduct = document.getElementById("modalUpdateProduct");
 const modalAddCategory = document.getElementById("modalAddCategory");
 const modalConfirm = document.getElementById("modalConfirm");
 
-// Buttons
+// buttons
 const btnAddProduct = document.getElementById("btnAddProduct");
 const btnAddCategory = document.getElementById("btnAddCategory");
 const saveAddProduct = document.getElementById("saveAddProduct");
 const saveCategory = document.getElementById("saveCategory");
 const saveUpdateProduct = document.getElementById("saveUpdateProduct");
 
-// Inputs (Add)
+// inputs (add)
 const productName = document.getElementById("productName");
 const productQty = document.getElementById("productQty");
 const productPrice = document.getElementById("productPrice");
 const productCategory = document.getElementById("productCategory");
 const productImage = document.getElementById("productImage");
 
-// Inputs (Update)
+// inputs (update)
 const updateId = document.getElementById("updateId");
 const updateName = document.getElementById("updateName");
 const updateQty = document.getElementById("updateQty");
@@ -50,9 +44,7 @@ const updateCategory = document.getElementById("updateCategory");
 const updateStatus = document.getElementById("updateStatus");
 const updateImage = document.getElementById("updateImage");
 
-// =========================
-// Utility functions
-// =========================
+// utility functions
 function openModal(modal) {
   modal.setAttribute("aria-hidden", "false");
 }
@@ -67,9 +59,7 @@ document.querySelectorAll(".close-modal").forEach(btn => {
   });
 });
 
-// =========================
-// Load Categories
-// =========================
+// load categories
 async function loadCategories() {
   productCategory.innerHTML = "";
   updateCategory.innerHTML = "";
@@ -83,9 +73,7 @@ async function loadCategories() {
   });
 }
 
-// =========================
-// Load Products 
-// =========================
+// load products 
 function loadProducts() {
   const q = collection(db, KEY_PRODUCTS);
   onSnapshot(q, snapshot => {
@@ -119,9 +107,7 @@ function renderProductRow(product) {
   productList.appendChild(tr);
 }
 
-// =========================
-// Dropdown behavior
-// =========================
+// dropdown 
 document.addEventListener("click", e => {
   document.querySelectorAll(".dropdown.open").forEach(d => d.classList.remove("open"));
 
@@ -141,9 +127,7 @@ document.addEventListener("click", e => {
   }
 });
 
-// =========================
-// Add Product
-// =========================
+// add product
 saveAddProduct.addEventListener("click", async () => {
   const name = productName.value.trim();
   const qty = parseInt(productQty.value);
@@ -165,9 +149,7 @@ saveAddProduct.addEventListener("click", async () => {
   closeModal(modalAddProduct);
 });
 
-// =========================
-// Add Category
-// =========================
+// add category
 saveCategory.addEventListener("click", async () => {
   const catName = document.getElementById("newCategory").value.trim();
   if (!catName) return alert("Enter category name.");
@@ -177,9 +159,7 @@ saveCategory.addEventListener("click", async () => {
   loadCategories();
 });
 
-// =========================
-// Update Product
-// =========================
+// update product
 async function openUpdateModal(id) {
   const snap = await getDocs(collection(db, KEY_PRODUCTS));
   snap.forEach(docSnap => {
@@ -217,9 +197,7 @@ await updateDoc(ref, {
   closeModal(modalUpdateProduct);
 });
 
-// =========================
-// Delete Product
-// =========================
+// delete product
 function confirmDelete(id) {
   openModal(modalConfirm);
   const confirmYes = document.getElementById("confirmYes");
@@ -233,19 +211,15 @@ function confirmDelete(id) {
   confirmNo.onclick = () => closeModal(modalConfirm);
 }
 
-// =========================
-// Button handlers
-// =========================
+// button handlers
 btnAddProduct.addEventListener("click", () => openModal(modalAddProduct));
 btnAddCategory.addEventListener("click", () => openModal(modalAddCategory));
 
-// =========================
-// Initialize
-// =========================
 window.addEventListener("DOMContentLoaded", () => {
   loadCategories();
   loadProducts();
 });
+
 
 
 
