@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">Verdaderos</h2>
+        <ul class="nav-links">
+            <li><a class="active" href="dashboard.html">Dashboard</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="inventoryhistory.html">Inventory History</a></li>
+            <li><a href="sales.html">Sales Overview</a></li>
+        </ul>
+    </aside>
+
+    <!-- search bar -->
+    <header class="topbar">
+        <input id="globalSearch" type="text" placeholder="Search Products" autocomplete="off" />
+    </header>
+
+    <!-- content mismo -->
+    <main class="content">
+
+        <!-- business overview -->
+        <section class="metrics">
+            <div class="metric-card">
+                <h3>Products</h3>
+                <p id="numProducts">4</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Categories</h3>
+                <p id="numCategories">2</p>
+            </div>
+
+            <div class="metric-card">
+                <h3>Total Quantity</h3>
+                <p id="totalQty">117</p>
+            </div>
+        </section>
+
+        <!-- product inventory list -->
+        <section class="product-list">
+            <h2>Inventoried Products</h2>
+
+            <div class="product-item">
+                <img src="verda shirt 1.png" alt="Product">
+                <div>
+                    <p><strong>take The Risk - Tan Variant</strong></p>
+                    <p>Qty: 76 • ₱550</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="verda shirt 2.png" alt="Product">
+                <div>
+                    <p><strong>DD - Black Variant</strong></p>
+                    <p>Qty: 50 • ₱550</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="verda shirt 3.png" alt="Product">
+                <div>
+                    <p><strong>Honest Man - White Variant</strong></p>
+                    <p>Qty: 0 • ₱550</p>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <img src="verda shirt 4.png" alt="Product">
+                <div>
+                    <p><strong>Marble - Gray Variant</strong></p>
+                    <p>Qty: 70 • ₱550</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="js/firebaseConfig.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+    <script src="js/search.js"></script>
+
+</body>
+</html>
+
