@@ -151,7 +151,7 @@ saveAddProduct.addEventListener("click", async () => {
   const category = productCategory.value;
   const image = productImage.value.trim();
 
-  if (!name) return alert("Enter product name.");
+  if (!name) return alert("Complete All Fields");
 
   await addDoc(collection(db, KEY_PRODUCTS), {
     name,
@@ -246,6 +246,7 @@ window.addEventListener("DOMContentLoaded", () => {
   loadCategories();
   loadProducts();
 });
+
 
 
 
