@@ -30,7 +30,7 @@
 
         const img = document.createElement("img");
         img.className = "product-image";
-        img.src = product.imageURL || "placeholder.jpg";
+        img.src = product.image || "https://via.placeholder.com/150";
         img.alt = product.name;
 
         const price = document.createElement("p");
