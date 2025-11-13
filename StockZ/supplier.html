@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supplier Management</title>
+  <link rel="stylesheet" href="css/supplier.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">Verdaderos</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="inventoryhistory.html">Inventory History</a></li>
+      <li><a href="sales.html">Sales Overview</a></li>
+      <li><a href="supplier.html" class="active">Suppliers</a></li>
+    </ul>
+  </aside>
+
+  <!-- Topbar -->
+  <header class="topbar">
+    <input type="text" placeholder="Search Supplier..." id="searchSupplier" />
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <section class="page-title">
+      <h2>Manage Suppliers</h2>
+      <div class="action-buttons">
+        <button id="btnAddSupplier" class="btn primary">+ Add Supplier</button>
+      </div>
+    </section>
+
+    <!-- Supplier Table -->
+    <div class="table-card">
+      <table class="product-table" id="supplierTable">
+        <thead>
+          <tr>
+            <th>Supplier Name</th>
+            <th>Contact Person</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="supplierTableBody">
+          <!-- Suppliers will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Add Supplier Modal -->
+  <div class="modal" id="modalAddSupplier" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Add Supplier</h3>
+
+      <label for="supplierName">Supplier Name</label>
+      <input type="text" id="supplierName" placeholder="Enter supplier name" />
+
+      <label for="supplierContact">Contact Person</label>
+      <input type="text" id="supplierContact" placeholder="Enter contact person" />
+
+      <label for="supplierPhone">Phone</label>
+      <input type="text" id="supplierPhone" placeholder="Enter phone number" />
+
+      <label for="supplierEmail">Email</label>
+      <input type="email" id="supplierEmail" placeholder="Enter email address" />
+
+      <label for="supplierAddress">Address</label>
+      <input type="text" id="supplierAddress" placeholder="Enter address" />
+
+      <label for="supplierNotes">Notes</label>
+      <input type="text" id="supplierNotes" placeholder="Additional details (optional)" />
+
+      <div class="modal-buttons">
+        <button id="saveAddSupplier" class="btn primary">Save</button>
+        <button id="cancelAddSupplier" class="btn secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/supplier.js"></script>
+</body>
+</html>

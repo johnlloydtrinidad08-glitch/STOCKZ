@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory History</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Verdaderos</h2>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a class="active" href="inventoryhistory.html">Inventory History</a></li>
+      <li><a href="sales.html">Sales Overview</a></li>
+      <li><a href="supplier.html">Suppliers</a></li>
+    </ul>
+  </aside>
+
+  <!-- search bar -->
+    <header class="topbar">
+        <input id="globalSearch" type="text" placeholder="Search Products" autocomplete="off" />
+    </header>
+
+  <!-- content mismo -->
+  <main class="content">
+    <section class="page-title">
+      <h2>Inventory History</h2>
+    </section>
+
+    <div class="table-card">
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Product Name</th>
+            <th>Event</th>
+          </tr>
+        </thead>
+        <tbody id="historyList">
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- firebase at js links -->
+  <script type="module" src="js/firebaseConfig.js"></script>
+  <script type="module" src="js/inventoryhistory.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>

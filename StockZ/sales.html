@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Overview</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Verdaderos</h2>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="inventoryhistory.html">Inventory History</a></li>
+      <li><a class="active" href="sales.html">Sales Overview</a></li>
+      <li><a href="supplier.html">Suppliers</a></li>
+    </ul>
+  </aside>
+
+  <!-- search bar -->
+    <header class="topbar">
+        <input id="globalSearch" type="text" placeholder="Search Products" autocomplete="off" />
+    </header>
+
+  <!-- conten mismo -->
+  <main class="content">
+    <section class="page-title">
+      <h2>Sales Overview</h2>
+    </section>
+
+    <!-- summary card -->
+    <div class="summary-card">
+      <h3>Total Revenue</h3>
+      <p id="totalRevenue" class="revenue-value">₱0</p>
+    </div>
+
+    <!-- sales table -->
+    <div class="table-card">
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Product Name</th>
+            <th>Price (₱)</th>
+            <th>Total (₱)</th>
+          </tr>
+        </thead>
+        <tbody id="salesList">
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- firebase at js links -->
+  <script type="module" src="js/firebaseConfig.js"></script>
+  <script type="module" src="js/sales.js"></script>
+  <script type="module">
+    
+    // search bar logic
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) return;
+        window.location.href = `inventory.html?search=${encodeURIComponent(query)}`;
+      }
+    });
+  </script>
+
+  <script src="js/search.js"></script>
+
+</body>
+</html>
